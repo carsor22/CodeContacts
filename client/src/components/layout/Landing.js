@@ -15,9 +15,10 @@ const Landing = () => {
 
 			<Link to = "/login" className="btn btn-primary">Log In</Link> 
 
-				</div>
+			</div>
 			</div>
 		</div>
+
 	</section>
 	
 	)

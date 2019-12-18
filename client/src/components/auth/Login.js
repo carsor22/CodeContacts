@@ -20,7 +20,9 @@ const Login = () => {
 		console.log('Success');
 	};
 
-	return <Fragment>
+	return (
+
+	<Fragment>
 	
 	<h1 className = "large text-primary">
 		Log In
@@ -54,11 +56,11 @@ const Login = () => {
 	</form>	
 
 	<p className = "my-1"> 
-		Don't have an account? <Link to ="/register.html">Sign Up</Link>
+		Don't have an account? <Link to ="/register">Sign Up</Link>
 	</p>
 
-	</Fragment>;
-
+	</Fragment>
+	);
 };
 
 export default Login;

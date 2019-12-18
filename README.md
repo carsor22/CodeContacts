@@ -1,19 +1,27 @@
 # CodeContacts
 Social network site for developers
 
-##Quick Start
+#Quick Start
 
-	# Install server dependencies
+	Install server dependencies
 	npm install
 
-	# Install client dependencies
+	Install client dependencies
 	cd client
 	npm install
 
-	# Run both Express & React from root
+	Run SASS on server
+	cd theme
+	npm run sass
+	live-server
+
+	Run both Express & React from root
 	npm run dev
 
-	# Build for production
+
+	Build for production
 	cd client
 	npm run build
+
+
 

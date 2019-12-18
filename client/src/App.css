@@ -88,7 +88,9 @@ img {
 .landing {
   position: relative;
   background: url("./img/showcase.jpg") no-repeat center center/cover;
-  height: 100vh; }
+  height:125vh;
+}
+
   .landing-inner {
     color: #fff;
     height: 100%;
@@ -98,7 +100,8 @@ img {
     margin: auto;
     align-items: center;
     justify-content: center;
-    text-align: center; }
+    text-align: center; 
+  }
 
 .alert {
   padding: 0.2rem 10px;
@@ -163,7 +166,8 @@ img {
   overflow: hidden;
   padding: 0 2rem;
   margin-top: 10rem;
-  margin-bottom: 3rem; }
+  margin-bottom: 3rem; 
+}
 
 .text-primary {
   color: #d50074; }
@@ -291,4 +295,3 @@ img {
     .post a,
     .post button {
       padding: 0.3rem 0.4rem; } }
-

@@ -17,7 +17,7 @@ const App = () => (
     <Fragment>
       
       <Navbar />
-      <Route exact path = "/" component= {Landing} />
+      <Route exact path = "/" component={Landing} />
    	  <section className= "container">
 
    	  	<Switch>
@@ -32,7 +32,5 @@ const App = () => (
 </Router>
 </Provider>
 );
-
- 
 
 export default App;
