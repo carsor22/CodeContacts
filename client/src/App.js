@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar.js';
 import Landing from './components/layout/Landing.js';
 import Login from './components/auth/Login.js';
 import Register from './components/auth/Register.js';
+import Alert from './components/layout/Alert.js';
 import './App.css';
 
 //redux 
@@ -19,6 +20,7 @@ const App = () => (
       <Navbar />
       <Route exact path = "/" component={Landing} />
    	  <section className= "container">
+        <Alert />
 
    	  	<Switch>
 
