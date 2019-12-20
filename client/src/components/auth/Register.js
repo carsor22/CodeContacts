@@ -1,10 +1,12 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect} from 'react-router-dom';
 import {setAlert} from '../../actions/alert';
-import PropTypes from 'prop-types'
+import { register } from '../../actions/auth';
+import PropTypes from 'prop-types';
 
-const Register = ({setAlert}) => {
+
+const Register = ({setAlert, register, isAuthenticated}) => {
 
 	//updating input and passing in values with set state 
 
@@ -24,9 +26,13 @@ const Register = ({setAlert}) => {
 		if(password !== password2) {
 			setAlert('Passwords do not match', 'danger');
 		} else {
-			console.log('success');
+			register({ name, email, password});
 		}
 	};
+
+	if(isAuthenticated) {
+		return <Redirect to = './dashboard' />;
+	}
 
 	return <Fragment>
 	
@@ -43,7 +49,7 @@ const Register = ({setAlert}) => {
 			name="name" 
 			value = {name} 
 			onChange ={e => onChange(e)}
-			required />
+			/>
 		</div>
 
 		<div className = "form-group">
@@ -52,7 +58,7 @@ const Register = ({setAlert}) => {
 			placeholder="Email Address" 
 			name = "email"
 			value = {email} 
-			onChange ={e => onChange(e)} required/>
+			onChange ={e => onChange(e)} />
 			
 			<small className="form-text">
 				This site enables gravatar. 
@@ -65,8 +71,8 @@ const Register = ({setAlert}) => {
 			placeholder="Password" 
 			name= "password"
 			value= {password}
-			onChange ={e => onChange(e)} required
-			minLength="6"/>
+			onChange ={e => onChange(e)} 
+			/>
 		</div>
 
 		<div className = "form-group">
@@ -75,8 +81,8 @@ const Register = ({setAlert}) => {
 			placeholder="Confirm Password" 
 			name= "password2"
 			value= {password2}
-			onChange ={e => onChange(e)} required
-			minLength="6"/>
+			onChange ={e => onChange(e)} 
+			/>
 
 		</div>
 
@@ -94,13 +100,18 @@ const Register = ({setAlert}) => {
 };
 
 Register.propTypes = {
-	setAlert: PropTypes.func.isRequired
+	setAlert: PropTypes.func.isRequired,
+	register: PropTypes.func.isRequired,
+	isAuthenticated: PropTypes.bool
 };
 
+const mapStateToProps = state => ({
+	isAuthenticated: state.auth.isAuthenticated
+});
 
 export default connect(
-	null, 
-	{ setAlert }
+	mapStateToProps, 
+	{ setAlert, register }
 	)(Register);
 
 

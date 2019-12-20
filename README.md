@@ -1,7 +1,7 @@
 # CodeContacts
 Social network site for developers
 
-Quick Start
+Quick Start:
 
 	#Install server dependencies
 	npm install
