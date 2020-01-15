@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addEducation  } from '../../actions/profile';
+import { addEducation } from '../../actions/profile';
 
 const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
@@ -11,19 +11,31 @@ const AddEducation = ({ addEducation, history }) => {
     fieldofstudy: '',
     from: '',
     to: '',
+    current: false,
     description: ''
   });
 
-  const { school, degree, fieldofstudy, from, to, description } = formData;
+  const [toDateDisabled, toggleDisabled] = useState(false);
+
+  const {
+    school,
+    degree,
+    fieldofstudy,
+    from,
+    to,
+    current,
+    description
+  } = formData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Add Education</h1>
+      <h1 className='large text-primary'>Add Your Education</h1>
       <p className='lead'>
-        <i className='fas fa-code-branch' /> Add any school or bootcamp you have attended
+        <i className='fas fa-code-branch' /> Add any school or bootcamp that you
+        have attended
       </p>
       <small>* = required field</small>
       <form
@@ -72,12 +84,28 @@ const AddEducation = ({ addEducation, history }) => {
           />
         </div>
         <div className='form-group'>
+          <p>
+            <input
+              type='checkbox'
+              name='current'
+              checked={current}
+              value={current}
+              onChange={() => {
+                setFormData({ ...formData, current: !current });
+                toggleDisabled(!toDateDisabled);
+              }}
+            />{' '}
+            Current School
+          </p>
+        </div>
+        <div className='form-group'>
           <h4>To Date</h4>
           <input
             type='date'
             name='to'
             value={to}
             onChange={e => onChange(e)}
+            disabled={toDateDisabled ? 'disabled' : ''}
           />
         </div>
         <div className='form-group'>
@@ -85,18 +113,18 @@ const AddEducation = ({ addEducation, history }) => {
             name='description'
             cols='30'
             rows='5'
-            placeholder='Programme Description'
+            placeholder='Program Description'
             value={description}
             onChange={e => onChange(e)}
           />
         </div>
-        <input type='submit' value='Submit' className='btn btn-primary my-1' />
-      </form>
-      <br> 
-      </br>
-      <Link className='btn-light' to='/dashboard'>
+        <input type='submit' className='btn btn-primary my-1' />
+        </form>
+        <br>
+        </br>
+        <Link className='btn-light' to='/dashboard'>
           Go Back To Dashboard
-      </Link>
+        </Link>
     </Fragment>
   );
 };

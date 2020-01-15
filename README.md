@@ -1,5 +1,4 @@
 # CodeContacts
-Social network site for developers
 
 Quick Start:
 

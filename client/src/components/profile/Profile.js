@@ -50,9 +50,8 @@ const Profile = ({ getProfileById, profile: { profile,loading}, auth, match }) =
             {profile.githubusername && (
               <ProfileGithub username={profile.githubusername} />
             )}
-
-				</div>
-			</Fragment>
+		   </div>
+		   </Fragment>
       )}
 		</Fragment>
 	);
