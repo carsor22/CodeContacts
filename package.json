@@ -14,14 +14,17 @@
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "config": "^3.2.4",
+    "config": "^3.3.0",
+    "dependencies": "0.0.1",
     "express": "^4.17.1",
-    "express-validator": "^6.3.0",
+    "express-validator": "^6.4.0",
     "gravatar": "^1.8.0",
+    "json-update": "^5.3.0",
     "jsonwebtoken": "^8.5.1",
     "mem": "^5.1.1",
-    "mongoose": "^5.7.5",
-    "request": "^2.88.0"
+    "minimist": ">=1.2.2",
+    "mongoose": "^5.9.5",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "concurrently": "^4.1.2",
